@@ -1,0 +1,9 @@
+# Pinned to the versions tested in the local 'tess' environment
+lightkurve==2.6.0
+astroquery==0.4.11
+astropy==8.0.1
+numpy==2.5.3
+pandas==2.3.3
+scipy==1.18.1
+matplotlib==3.11.2
+pyarrow==25.0.1

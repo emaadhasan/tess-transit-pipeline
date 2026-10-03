@@ -1,0 +1,37 @@
+# Data and results (large, and easy to regenerate from public NASA data)
+data/
+
+# AWS settings generated for one specific account
+# (they contain the account number, subnet IDs and role ARNs)
+infra/compute-env.json
+infra/job-def.json
+infra/submit-*.json
+
+# Secrets and credentials (none live in this project, but just in case)
+.env
+*.pem
+*.key
+.aws/
+credentials
+config.json
+
+# Terraform (for later): state files can contain sensitive values
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+# Python and Jupyter clutter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*_old.ipynb
+
+# Virtual environments, editors, operating system files
+.venv/
+venv/
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store

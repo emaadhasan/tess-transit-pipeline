@@ -1,0 +1,7 @@
+# Keep the image small: only src/ and requirements.txt are needed
+data/
+notebooks/
+**/__pycache__/
+**/.ipynb_checkpoints/
+.git/
+*.png
