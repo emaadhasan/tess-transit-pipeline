@@ -137,4 +137,4 @@ docker run --rm -v "$(pwd)/data:/app/data" tess-pipeline --targets "WASP-18" --n
 
 ## Author
 
-**Syed Emaad Hasan**, B.Sc. Natural Sciences (Physics and Mathematics), University of Calgary
+**Syed Emaad Hasan**
