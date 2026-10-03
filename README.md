@@ -133,7 +133,7 @@ docker run --rm -v "$(pwd)/data:/app/data" tess-pipeline --targets "WASP-18" --n
 
 - Light curves from NASA's **TESS** mission, accessed through the **MAST** archive at STScI
 - Dispositions from the **TESS Objects of Interest** catalog at the **NASA Exoplanet Archive**
-- Built with [lightkurve](https://docs.lightkurve.org/), Astropy, NumPy, pandas, and scikit-learn
+- Built with lightkurve, Astropy, NumPy, pandas, and scikit-learn
 
 ## Author
 
