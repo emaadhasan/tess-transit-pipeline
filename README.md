@@ -16,14 +16,7 @@ When a planet passes in front of its star, the star dims slightly for a few hour
 
 ## How it works
 
-```mermaid
-flowchart LR
-    A[NASA TESS light curves] --> B[Clean the data]
-    B --> C[Flatten, find, mask, flatten]
-    C --> D[Measure the signal and 19 features]
-    D --> E[Classifier: planet or impostor?]
-    E --> F[Ranked candidate list]
-```
+**NASA light curves → clean → flatten, find, mask, flatten → measure 19 features → classify → ranked candidates**
 
 ### 1. Detection
 
@@ -51,6 +44,17 @@ A random forest combines these 19 features. I checked that it learned real physi
 ### 3. Running in the cloud
 
 The pipeline is packaged with **Docker** and runs on **AWS**:
+
+![AWS architecture](docs/architecture.svg)
+
+1. The Docker image is built locally and pushed to **ECR**.
+2. The list of target stars is uploaded to **S3**.
+3. An **AWS Batch** array job is submitted.
+4. Batch starts 32 containers on **Fargate Spot**, each pulling the image from ECR.
+5. Each container downloads its stars' light curves from NASA's **MAST** archive.
+6. Each container uploads its results to S3, and its logs go to **CloudWatch**.
+7. The combined results are stored as partitioned Parquet and queried with SQL in **Athena**.
+8. The results come back to the notebooks for training the classifier and ranking candidates.
 
 | Service | What it does here |
 |---|---|
