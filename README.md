@@ -145,7 +145,6 @@ streamlit run app/streamlit_app.py
 ## Next steps
 
 - Infrastructure as code with Terraform, and automated builds with GitHub Actions
-- An interactive app for browsing the ranked candidates
 - Searching for a second signal after masking the first, to recover planets hidden behind stellar variability
 - Supporting TESS full-frame-image data to cover many more stars
 
