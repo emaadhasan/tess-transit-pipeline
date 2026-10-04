@@ -1,0 +1,4 @@
+# Only what the app needs (the pipeline's own requirements are in the project root)
+streamlit>=1.50
+pandas>=2.2
+altair>=5
