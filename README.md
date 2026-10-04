@@ -65,6 +65,10 @@ The pipeline is packaged with **Docker** and runs on **AWS**:
 | **CloudWatch Logs** | Keeps each job's output for debugging |
 | **Athena** | Runs SQL queries directly on the Parquet results in S3 |
 
+### 4. Candidate explorer app
+
+A Streamlit app lets anyone browse the ranked candidates without running any code. You can filter by score, planet size and orbital period, then click a candidate to see its diagnostic plot and why the classifier scored it the way it did. Each candidate also links to its page on ExoFOP, NASA's follow-up database.
+
 ## Things that went wrong, and what they taught me
 
 Most of the pipeline's design came from fixing problems:
@@ -87,6 +91,11 @@ Most of the pipeline's design came from fixing problems:
 
 ```
 tess-transit-pipeline/
+├── app/
+│   ├── streamlit_app.py # the candidate explorer app
+│   └── assets/          # small data files and plots the app reads
+├── scripts/
+│   └── build_app_assets.py   # prepares app/assets from local results
 ├── src/
 │   ├── pipeline.py      # detection: fetch, clean, detrend, search, measure
 │   ├── features.py      # vetting features for the classifier
@@ -127,6 +136,12 @@ docker run --rm -v "$(pwd)/data:/app/data" tess-pipeline --targets "WASP-18" --n
 
 **At scale,** `run.py` can process one chunk of a large target list with `--chunk-size`. On AWS Batch, each copy of the job automatically takes its own chunk.
 
+**The candidate explorer app:**
+
+```bash
+pip install -r app/requirements.txt
+streamlit run app/streamlit_app.py
+```
 ## Next steps
 
 - Infrastructure as code with Terraform, and automated builds with GitHub Actions
