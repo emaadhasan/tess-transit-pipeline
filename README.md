@@ -4,6 +4,8 @@ An end-to-end pipeline that searches NASA's TESS telescope data for planets orbi
 
 When a planet passes in front of its star, the star dims slightly for a few hours. This is called a **transit**. TESS has recorded the brightness of hundreds of thousands of stars, and this project builds a system that finds those small, repeating dips automatically.
 
+**[Try the live candidate explorer](https://tess-exoplanets.streamlit.app/)**
+
 ## Results
 
 | What | Result |
