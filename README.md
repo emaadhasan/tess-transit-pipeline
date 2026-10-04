@@ -100,6 +100,7 @@ tess-transit-pipeline/
 │   ├── 05_classifier.ipynb            # the classifier and candidate ranking
 │   └── 06_cloud_check.ipynb           # AWS run, reproducibility, data lake
 ├── infra/               # IAM policies for the AWS setup
+├── docs/
 ├── Dockerfile
 └── requirements.txt
 ```
